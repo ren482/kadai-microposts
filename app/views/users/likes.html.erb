@@ -9,8 +9,8 @@
                 <img src="<%= gravatar_url(@user, {size:500}) %>" class="rounded img-fluid" alt="画像表示ミス">
             </div>
         </div>
+      
         
-        <%= render "relationships/follow_button", user: @user %>
         
     </aside>
     
@@ -38,7 +38,7 @@
              </a></li>
         </ul>
         
-       <%= render 'users', users: @followers %>
+       <%= render 'likes', microposts: @likes %>
         
     </div>
 

@@ -7,10 +7,11 @@
             </div>
             <div class="card-body">
                 <img src="<%= gravatar_url(@user, {size:500}) %>" class="rounded img-fluid" alt="画像表示ミス">
+               
             </div>
+             <%= render "relationships/follow_button", user: @user %>
         </div>
         
-        <%= render "relationships/follow_button", user: @user %>
         
     </aside>
     
@@ -26,8 +27,15 @@
             </li>
             
             
-            <li class="nav-item"><a href="<%= followings_user_path(@user) %>" class="nav-link">Followings</a></li>
-            <li class="nav-item"><a href="<%= followers_user_path(@user) %>" class="nav-link">Followers</a></li>
+            <li class="nav-item"><a href="<%= followings_user_path(@user) %>" class="nav-link">Followings
+            <span class="badge badge-secondary"><%= @count_followings %></span>
+            </a></li>
+            <li class="nav-item"><a href="<%= followers_user_path(@user) %>" class="nav-link">Followers
+            <span class="badge badge-secondary"><%= @count_followers %></span>
+            </a></li>
+            <li class="nav-item"><a href="<%= likes_user_path(@user) %>" class="nav-link">okiniiri
+            <span class="badge badge-secondary"><%= @count_likes %></span>
+            </a> </li>
         </ul>
         
         <%= render 'microposts/microposts', microposts: @microposts %>
