@@ -27,8 +27,6 @@ ActiveRecord::Schema.define(version: 2020_08_17_080151) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "micropost_id"
-    t.index ["micropost_id"], name: "index_microposts_on_micropost_id"
     t.index ["user_id"], name: "index_microposts_on_user_id"
   end
 
@@ -52,7 +50,6 @@ ActiveRecord::Schema.define(version: 2020_08_17_080151) do
 
   add_foreign_key "favorites", "microposts"
   add_foreign_key "favorites", "users"
-  add_foreign_key "microposts", "microposts"
   add_foreign_key "microposts", "users"
   add_foreign_key "relationships", "users"
   add_foreign_key "relationships", "users", column: "follow_id"
